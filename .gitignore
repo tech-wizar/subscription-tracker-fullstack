@@ -1,0 +1,12 @@
+# IDE & System Files
+.idea/
+.vscode/
+.DS_Store
+
+# Frontend Dependencies & Build
+subscription-tracker-ui/node_modules/
+subscription-tracker-ui/dist/
+.env.local
+
+# Backend Build Output
+subscription-tracker-api/target/

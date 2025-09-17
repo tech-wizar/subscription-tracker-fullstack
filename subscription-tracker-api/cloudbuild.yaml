@@ -1,0 +1,25 @@
+steps:
+  # steps:
+  # 1) Build the jar with Maven (skip tests)
+  - name: 'maven:3.9.6-eclipse-temurin-17'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - 'mvn -B -DskipTests clean package'
+
+  # 2) Build docker image and tag with latest
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'us-central1-docker.pkg.dev/subscriptiontracker-cloud/subscription-repo/subscription-backend:latest'
+      - '.'
+
+  # 3) Push the image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'us-central1-docker.pkg.dev/subscriptiontracker-cloud/subscription-repo/subscription-backend:latest'
+
+images:
+  - 'us-central1-docker.pkg.dev/subscriptiontracker-cloud/subscription-repo/subscription-backend:latest'

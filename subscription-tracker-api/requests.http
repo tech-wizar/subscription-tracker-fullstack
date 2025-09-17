@@ -1,0 +1,31 @@
+### 1. GET all subscriptions
+GET http://localhost:8080/api/subscriptions
+
+###
+### 2. POST (add) a new subscription
+POST http://localhost:8080/api/subscriptions
+Content-Type: application/json
+
+{
+    "name": "Amazon Prime",
+    "category": "Shopping",
+    "cost": 14.99,
+    "billingCycle": "MONTHLY",
+    "startDate": "2025-08-01"
+}
+
+###
+### 3. GET all subscriptions again
+GET http://localhost:8080/api/subscriptions
+
+###
+### 3. GET subscription summary (for a logged-in user)
+@token = eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbmlrZXRraG9yd2FsQGdtYWlsLmNvbSIsImlhdCI6MTc1NjQ2MTU4MCwiZXhwIjoxNzU2NTQ3OTgwfQ.8hysVEfNpVEIJVxPPPlSmsA88-Y73kvp_64C5JfE9ZUA-ZvU_II1ecWhaRHg8h5w
+
+GET http://localhost:8080/api/subscriptions/summary
+Authorization: Bearer {{token}}
+
+### GET upcoming bills
+@token = eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbmlrZXRraG9yd2FsQGdtYWlsLmNvbSIsImlhdCI6MTc1NjcwOTM3OCwiZXhwIjoxNzU2Nzk1Nzc4fQ.XeJTAICrU98b3LRinfcZoGBBhmMOvzWvzIYDkFb0abidP1AKkjxCmaLc8xA3XDG9
+GET http://localhost:8080/api/subscriptions/upcoming
+Authorization: Bearer {{token}}
