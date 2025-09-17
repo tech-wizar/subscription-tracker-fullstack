@@ -46,7 +46,7 @@ Follow these instructions to get the project running on your local machine.
 ### 1. Clone the Repository
 
 ```bash
-git clone [[https://github.com/your-username/subscription-tracker-fullstack.git]
+git clone [https://github.com/your-username/subscription-tracker-fullstack.git]
 cd subscription-tracker-fullstack
 ```
 
